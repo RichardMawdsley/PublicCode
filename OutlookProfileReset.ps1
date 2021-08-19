@@ -43,7 +43,7 @@ Catch {
 # Remove Identities
 try {
     Write-Host "Removing identities" -ForegroundColor Yellow
-    Remove-ItemProperty -Path "$IdentityPath" -Name $ConnectedAccountWAMAad, $ConnectedWAMIdentity, $ADUserName, $TrustedSite, $SignedOutADUser, $SignedOutWAMUsers
+    Remove-ItemProperty -Path "$IdentityPath" -Name $ConnectedAccountWAMAad, $ConnectedWAMIdentity, $ADUserName, $TrustedSite, $SignedOutADUser, $SignedOutWAMUsers -ErrorAction SilentlyContinue
     Remove-Item -Path "$IdentitySubPath" -Recurse
     Remove-Item -Path "$ProfilePath" -Recurse
 }
