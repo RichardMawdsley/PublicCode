@@ -8,6 +8,8 @@ $ConnectedWAMIdentity = "ConnectedWAMIdentity"
 $ConnectedAccountWAMAad = "ConnectedAccountWAMAad"
 $ADUserName = "ADUserName"
 $TrustedSite = "TrustedSiteUrlForUserAgentVersionInfo"
+$SignedOutADUser = "SignedOutOutADUser"
+$SignedOutWAMUsers = "SignedoutOutWAMUsers "
 
 try {
     Write-Host "Adding AutoDiscover keys" -ForegroundColor Yellow
@@ -39,7 +41,7 @@ Catch {
 # Remove Identities
 try {
     Write-Host "Removing identities" -ForegroundColor Yellow
-    Remove-ItemProperty -Path "$IdentityPath" -Name $ConnectedAccountWAMAad, $ConnectedWAMIdentity, $ADUserName, $TrustedSite
+    Remove-ItemProperty -Path "$IdentityPath" -Name $ConnectedAccountWAMAad, $ConnectedWAMIdentity, $ADUserName, $TrustedSite, $SignedOutADUser, $SignedOutWAMUsers
     Remove-Item -Path "$IdentitySubPath" -Recurse
     Remove-Item -Path "$ProfilePath" -Recurse
 }
