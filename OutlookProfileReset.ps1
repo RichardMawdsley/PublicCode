@@ -38,7 +38,7 @@ Catch {
 
 # Remove Identities
 try {
-    Write-Host "Removing identities"
+    Write-Host "Removing identities" -ForegroundColor Yellow
     Remove-ItemProperty -Path "$IdentityPath" -Name $ConnectedAccountWAMAad, $ConnectedWAMIdentity, $ADUserName, $TrustedSite
     Remove-Item -Path "$IdentitySubPath" -Recurse
     Remove-Item -Path "$ProfilePath" -Recurse
@@ -50,7 +50,7 @@ Catch {
 
 #Remove Outlook Profile
 try {
-    Write-Host "Removing Outlook Profiles"
+    Write-Host "Removing Outlook Profiles" -ForegroundColor Yellow
     $Profiles = (Get-Item -Path "$OutlookPath\profiles\*").Name
     Foreach ($aprofile in $Profiles) {
         Write-Host "Removing "$aprofile"" -ForegroundColor Yellow
