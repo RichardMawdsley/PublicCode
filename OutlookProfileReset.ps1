@@ -29,8 +29,8 @@ catch {
 try {
     $Identity = Get-ItemPropertyValue -Path $IdentityPath -Name $ConnectedAccountWAMAad
     Write-Host "Identity Value $Identity" -ForegroundColor Yellow
-    $IdentitySubPath = "$IdentityPath\Identities\$Identity"
-    $ProfilePath = "$IdentityPath\Profiles\$Identity"
+    $IdentitySubPath = "$IdentityPath\Identities\$Identity" + "_ADAL"
+    $ProfilePath = "$IdentityPath\Profiles\$Identity" + "_ADAL"
 }
 Catch {
     Write-Host "No Identity Found - You will need to manually search" -ForegroundColor Red
@@ -62,3 +62,7 @@ try {
 Catch {
     Write-Host "Failed to remove Outlook Profile "$aprofile"" -ForegroundColor Red
 }
+
+Write-Host "Please wait for changes to propagate.. 30secs..." -ForegroundColor Yellow
+Start-Sleep -Seconds 30
+Write-Host "Reset Complete" -ForegroundColor Yellow
