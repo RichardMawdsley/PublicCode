@@ -2,6 +2,7 @@
 # Designed for JLA \ Firewatch
 # Rich Mawdsley
 
+# Set Variables
 $OutlookPath = "HKCU:\Software\Microsoft\Office\16.0\Outlook"
 $IdentityPath = "HKCU:\Software\Microsoft\Office\16.0\Common\Identity"
 $ConnectedWAMIdentity = "ConnectedWAMIdentity"
@@ -11,6 +12,7 @@ $TrustedSite = "TrustedSiteUrlForUserAgentVersionInfo"
 $SignedOutADUser = "SignedOutOutADUser"
 $SignedOutWAMUsers = "SignedoutOutWAMUsers"
 
+# Add AutoDiscover and ADAL Key
 try {
     Write-Host "Adding AutoDiscover keys" -ForegroundColor Yellow
     New-ItemProperty -Path "$OutlookPath\AutoDiscover" -Name "ExcludeExplicitO365Endpoint" -Value "0" -PropertyType DWORD -Force | Out-Null
@@ -27,7 +29,7 @@ catch {
     Write-Host "Failed to add required keys - please proceed manually" -ForegroundColor Red
 }
 
-
+# Retrieve Uniquie Identity
 try {
     $Identity = Get-ItemPropertyValue -Path $IdentityPath -Name $ConnectedAccountWAMAad
     Write-Host "Identity Value $Identity" -ForegroundColor Yellow
@@ -50,7 +52,7 @@ Catch {
 }
 
 
-#Remove Outlook Profile
+# Remove Outlook Profile
 try {
     Write-Host "Removing Outlook Profiles" -ForegroundColor Yellow
     $Profiles = (Get-Item -Path "$OutlookPath\profiles\*").Name
@@ -65,6 +67,7 @@ Catch {
     Write-Host "Failed to remove Outlook Profile "$aprofile"" -ForegroundColor Red
 }
 
+# Wait for changes to take effect
 Write-Host "Please wait for changes to propagate.. 30secs..." -ForegroundColor Yellow
 Start-Sleep -Seconds 30
 Write-Host "Reset Complete" -ForegroundColor Yellow
