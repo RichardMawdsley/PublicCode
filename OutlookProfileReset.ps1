@@ -9,7 +9,7 @@ $ConnectedAccountWAMAad = "ConnectedAccountWAMAad"
 $ADUserName = "ADUserName"
 $TrustedSite = "TrustedSiteUrlForUserAgentVersionInfo"
 $SignedOutADUser = "SignedOutOutADUser"
-$SignedOutWAMUsers = "SignedoutOutWAMUsers "
+$SignedOutWAMUsers = "SignedoutOutWAMUsers"
 
 try {
     Write-Host "Adding AutoDiscover keys" -ForegroundColor Yellow
