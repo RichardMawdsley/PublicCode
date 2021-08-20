@@ -9,8 +9,8 @@ $ConnectedWAMIdentity = "ConnectedWAMIdentity"
 $ConnectedAccountWAMAad = "ConnectedAccountWAMAad"
 $ADUserName = "ADUserName"
 $TrustedSite = "TrustedSiteUrlForUserAgentVersionInfo"
-$SignedOutADUser = "SignedOutOutADUser"
-$SignedOutWAMUsers = "SignedoutOutWAMUsers"
+$SignedOutADUser = "SignedOutADUser"
+$SignedOutWAMUsers = "SignedOutWAMUsers"
 
 # Add AutoDiscover and ADAL Key
 try {
