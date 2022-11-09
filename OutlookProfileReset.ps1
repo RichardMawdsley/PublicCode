@@ -1,5 +1,4 @@
 # Full Local Outlook profile reset & Autodiscover force to 365 keys
-# Designed for JLA \ Firewatch
 # Rich Mawdsley
 
 # Set Variables
